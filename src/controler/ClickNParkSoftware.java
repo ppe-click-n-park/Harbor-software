@@ -22,10 +22,10 @@ public class ClickNParkSoftware {
      */
     public static void main(String[] args) {
         
-        //Déclaration des variables
-        GUI Guy = new GUI();
-        ArrayList<Demand> Demands;
-        
+      //Déclaration des variables
+      GUI Guy = new GUI();
+      ArrayList<Demand> Demands;
+      /*
       Connection c = null;
       
       try {
@@ -36,9 +36,8 @@ public class ClickNParkSoftware {
          System.exit(0);
       }
       System.out.println("Opened database successfully");
-        
+      */
         //Initialisation du programme
         Guy.init();
     }
-    
 }

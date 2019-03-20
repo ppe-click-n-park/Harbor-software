@@ -6,43 +6,46 @@
 package view;
 
 import java.awt.CardLayout;
-import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.util.ArrayList;
-import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-import javax.swing.MutableComboBoxModel;
+
+
 /**
  *
  * @author Administrator
  */
-public class Main_card extends JPanel /*implements ItemListener, ActionListener, FocusListener*/{
+public class Main_card extends JPanel implements ActionListener{
     
-    private final JButton demands = new JButton("Demandes en attente");
-    private final JButton stores = new JButton("Commerces locaux");
-    private final JButton parameters = new JButton("Paramètres");
+    private final JButton demands_b = new JButton("Demandes en attente");
+    private final JButton stores_b = new JButton("Commerces locaux");
+    private final JButton parameters_b = new JButton("Paramètres");
+    private JPanel cards;
+    private CardLayout c;
+    private Demand_list_card demands;
     
-    public Main_card(){
+    
+    public Main_card(Demand_list_card demands, JPanel cards){
         super();
+        this.demands = demands;
+        this.cards = cards;
+        c=(CardLayout)this.cards.getLayout();
     }
     
     public void init(){
-        this.add(demands);
-        this.add(stores);
-        this.add(parameters);
+        demands_b.addActionListener((ActionListener) this);
+        this.add(demands_b);
+        this.add(stores_b);
+        this.add(parameters_b);
+    }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==demands_b){
+            //euh comment on code le fait que le bouton fasse afficher la bonne card
+            c.show(this.cards, "Demands");
+        }
     }
 }
 

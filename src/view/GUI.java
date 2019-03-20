@@ -22,13 +22,12 @@ import javax.swing.JPanel;
  */
 public class GUI extends JFrame{
     
-    private ArrayList<Demand> demands;
-    
+    private ArrayList<Demand> demands = new ArrayList<>();
     private final CardLayout Main_layout = new CardLayout();
     private final JPanel cards = new JPanel(Main_layout);
-    private final Main_card main_card = new Main_card();
-    private final Demand_list_card demands_card = new Demand_list_card(demands);
-    private final Store_list_card store_card = new Store_list_card(cards);
+    private  Demand_list_card demands_card;
+    private  Main_card main_card = new Main_card(demands_card, cards);
+    private  Store_list_card store_card = new Store_list_card();
     
     
     /**
@@ -37,6 +36,12 @@ public class GUI extends JFrame{
      */
     public GUI(){
         super();
+        //Des valeurs un peu random sont données pour simuler la présence de 3 demandes dans la base de donnée
+        demands.add(new Demand("Cullen", "Marc", "Joa", 15, 4, "AE86", 8));
+        demands.add(new Demand("tchullian", "Marcus", "Joa", 10, 3, "AE85", 8));
+        demands.add(new Demand("verclytte", "Marc", "Joe", 17, 3, "AE85", 7));
+        
+        demands_card=new Demand_list_card(demands,cards);
     }
     
     public void init(){
@@ -49,32 +54,23 @@ public class GUI extends JFrame{
     this.setLocationRelativeTo(null);
     //Exit behaviour
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    /*
-    try {
-        this.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("test.jpg")))));
-    } catch (IOException e) {
-    }
-    
-    */
+
     //Main card
     main_card.init();
     main_card.setName("main_card");
-    this.cards.add(main_card);
+    this.cards.add(main_card,"Main");
 
     //Card displaying the demands from boats
     demands_card.init();
     demands_card.setName("demands_card");
-    this.cards.add(demands_card);
+    this.cards.add(demands_card,"Demands");
 
     //Card displaying the stores
     store_card.init();
     store_card.setName("store_card");
-    this.cards.add(store_card);
+    this.cards.add(store_card,"Stores");
 
     this.add(cards);
-    Main_layout.first(cards);
-    //Main_layout.next(cards);
-    //Main_layout.last(cards);
     this.setVisible(true);
     }
 }
