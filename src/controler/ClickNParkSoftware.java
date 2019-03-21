@@ -5,8 +5,6 @@
  */
 package controler;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.ArrayList;
 import model.Demand;
 import view.*;
@@ -25,18 +23,7 @@ public class ClickNParkSoftware {
       //Déclaration des variables
       GUI Guy = new GUI();
       ArrayList<Demand> Demands;
-      /*
-      Connection c = null;
-      
-      try {
-         Class.forName("org.sqlite.JDBC");
-         c = DriverManager.getConnection("jdbc:sqlite:test.db");
-      } catch ( Exception e ) {
-         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-         System.exit(0);
-      }
-      System.out.println("Opened database successfully");
-      */
+
         //Initialisation du programme
         Guy.init();
     }
