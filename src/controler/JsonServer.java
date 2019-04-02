@@ -93,6 +93,10 @@ public class JsonServer {
             System.err.println(e);
         }
     }
+
+    public ArrayList<Demand> getDemands() {
+        return demands;
+    }
     
-   
+     
 }

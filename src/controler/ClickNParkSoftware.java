@@ -22,12 +22,15 @@ public class ClickNParkSoftware {
      */
     public static void main(String[] args) {
 
-      //Déclaration des variables
-      GUI Guy = new GUI();
-      JsonServer Demand_server = new JsonServer();
+        //Déclaration des variables
+
+        JsonServer Demand_server = new JsonServer();
+        GUI Guy;
 
         //Initialisation du programme
-        Guy.init();
         Demand_server.init();
+        Guy = new GUI((Demand_server.getDemands()));
+        Guy.init();
+        
     }
 }
