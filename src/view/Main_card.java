@@ -36,14 +36,15 @@ public class Main_card extends JPanel implements ActionListener{
     public void init(){
         demands_b.addActionListener((ActionListener) this);
         this.add(demands_b);
+        /*
         this.add(stores_b);
         this.add(parameters_b);
+        */
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==demands_b){
-            //euh comment on code le fait que le bouton fasse afficher la bonne card
             c.show(this.cards, "Demands");
         }
     }

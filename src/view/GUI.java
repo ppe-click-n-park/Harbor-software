@@ -37,9 +37,9 @@ public class GUI extends JFrame{
     public GUI(){
         super();
         //Des valeurs un peu random sont données pour simuler la présence de 3 demandes dans la base de donnée
-        demands.add(new Demand("Cullen", "Marc", "Joa", 15, 4, "AE86", 8));
-        demands.add(new Demand("tchullian", "Marcus", "Joa", 10, 3, "AE85", 8));
-        demands.add(new Demand("verclytte", "Marc", "Joe", 17, 3, "AE85", 7));
+        demands.add(new Demand(1,"Cullen", "Marc", "Joa", 15, 4, "AE86", 8));
+        demands.add(new Demand(2,"tchullian", "Marcus", "Joa", 10, 3, "AE85", 8));
+        demands.add(new Demand(3,"verclytte", "Marc", "Joe", 17, 3, "AE85", 7));
         
         demands_card=new Demand_list_card(demands,cards);
     }

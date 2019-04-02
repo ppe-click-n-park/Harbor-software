@@ -72,9 +72,10 @@ public class Demand_list_card extends JPanel implements ActionListener{
             c.show(this.cards, "Main");
         }
         else{
+            //On vérifie quel bouton a été appuyé pour déterminer quel 
             for(int i=0; i<accept_b.size(); i++){
                 if(e.getSource()==accept_b.get(i)){
-                    
+                    //Insérer le put qui va changer le JSON pour mettre l'état "accepté"
                 }
             }
         }
