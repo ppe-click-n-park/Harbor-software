@@ -45,7 +45,7 @@ public class JsonServer {
     public void init(){
         
         try {
-            
+            /*
             URL obj = new URL(REQUEST_URL);
             HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
 
@@ -71,12 +71,12 @@ public class JsonServer {
             for (int i = 0; i < array.length(); i++) {
                 JSONObject row = array.getJSONObject(i);
                 demands.add(new Demand(row.getInt("Id"), row.getString("State"), row.getString("FirstName"), 
-                        row.getString("Name"), row.getInt("BoatLength"), row.getInt("BoatWidth"),
+                        row.getString("Name"), row.getString("BoatName"), row.getInt("BoatLength"), row.getInt("BoatWidth"),
                         row.getString("BoatModel"), row.getInt("StayDuration")));
             }
 
             //Faire une boucle à travers chaque objet "demande" de l'objet JSON
-            //Créer un objet demande pour chaque avec les infos de l'objet
+            //Créer un objet demande pour chacun avec les infos de l'objet
             /*
             System.out.println("Id is:" + myresponse.getString("Id"));
             System.out.println("State is:" + myresponse.getString("State"));//On hold, accepted or refused
@@ -87,11 +87,27 @@ public class JsonServer {
             System.out.println("BoatWidth is:" + myresponse.getString("BoatWidth"));
             System.out.println("BoatModel is:" + myresponse.getString("BoatModel"));
             System.out.println("StayDuration is:" + myresponse.getString("StayDuration"));
+            * /
             */
-            
         } catch (Exception e) {
             System.err.println(e);
         }
+        
+        //Des valeurs un peu random sont données pour simuler la présence de 3 demandes dans la base de donnée
+        
+        
+        demands.add(new Demand(1,"On Hold","Cullen", "Marc", "Queen Anne's Revenge", 15, 4, "Pogo 10,50", 8));
+        demands.add(new Demand(2,"On Hold","Bonami", "Aubrey", "King Arthur's Forgiveness", 10, 3, "Sunfast 32", 5));
+        demands.add(new Demand(3,"On Hold","Loiseau", "Laurent", "Titanicotine", 17, 3, "Sunfast 32", 7));
+        
+        demands.add(new Demand(1,"On Hold","Desrosiers", "Noël", "Black pearl", 15, 4, "Cyclade 43", 8));
+        demands.add(new Demand(2,"On Hold","Mailhot", "Joséphine", "Le plongeur", 10, 3, "Lagoon 400", 5));
+        demands.add(new Demand(3,"Accepted","Vachon", "Norris", "ABBATEAU", 17, 3, "Pogo 10,50", 7));
+        
+        demands.add(new Demand(1,"Accepted","Delarue", "Antoine", "Sunny", 15, 4, "Pogo 10,50", 8));
+        demands.add(new Demand(2,"On Hold","Prat", "Simon", "Widow's wail", 10, 3, "Sunfast 32", 5));
+        demands.add(new Demand(3,"On Hold","Dupuis", "Laura", "White tear", 17, 3, "Cyclade 43", 7));
+        
     }
 
     public ArrayList<Demand> getDemands() {

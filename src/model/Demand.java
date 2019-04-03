@@ -12,6 +12,7 @@ package model;
 public class Demand {
     
     private final int Id;
+    private String State;
     private final String Name;
     private final String First_name;
     private final String Boat_name;
@@ -22,9 +23,10 @@ public class Demand {
     //private final String Stay_end;
     private final int Number_of_days;
     
-    public Demand(int _Id, String _name, String _first_name, String _boat_name, int _boat_length, int _boat_width, String _boat_model, /*String _stay_start, String _ stay_end,*/ int _number_of_days){
+    public Demand(int _Id, String _state, String _name, String _first_name, String _boat_name, int _boat_length, int _boat_width, String _boat_model, /*String _stay_start, String _ stay_end,*/ int _number_of_days){
         
         Id=_Id;
+        State=_state;
         Name=_name;
         First_name=_first_name;
         Boat_name=_boat_name;
@@ -36,6 +38,14 @@ public class Demand {
         //Stay_end = _stay_end;
     }
 
+    public int getId() {
+        return Id;
+    }
+
+    public String getState() {
+        return State;
+    }
+    
     public String getName() {
         return Name;
     }
@@ -63,6 +73,11 @@ public class Demand {
     public int getNumber_of_days() {
         return Number_of_days;
     }
+
+    public void setState(String State) {
+        this.State = State;
+    }
+    
     
     
 }

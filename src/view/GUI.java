@@ -25,9 +25,13 @@ public class GUI extends JFrame{
     private ArrayList<Demand> demands = new ArrayList<>();
     private final CardLayout Main_layout = new CardLayout();
     private final JPanel cards = new JPanel(Main_layout);
-    private  Demand_list_card demands_card;
-    private  Main_card main_card = new Main_card(demands_card, cards);
-    private  Store_list_card store_card = new Store_list_card();
+    
+    private Demand_list_card demands_card;
+    private Accepted_list_card accepted_card;
+    //private Store_list_card store_card;
+    
+    private Main_card main_card; 
+    
     
     
     /**
@@ -37,21 +41,18 @@ public class GUI extends JFrame{
     public GUI(ArrayList<Demand> _demands){
         super();
         demands=_demands;
-        //Des valeurs un peu random sont données pour simuler la présence de 3 demandes dans la base de donnée
         
-        /*
-        demands.add(new Demand(1,"Cullen", "Marc", "Joa", 15, 4, "AE86", 8));
-        demands.add(new Demand(2,"tchullian", "Marcus", "Joa", 10, 3, "AE85", 8));
-        demands.add(new Demand(3,"verclytte", "Marc", "Joe", 17, 3, "AE85", 7));
-        */
-        demands_card=new Demand_list_card(demands,cards);
+        demands_card = new Demand_list_card(demands,cards);
+        accepted_card = new Accepted_list_card(cards, demands);
+        
+        main_card = new Main_card(demands, demands_card, accepted_card, cards);
     }
     
     public void init(){
     //Setting the title
     this.setTitle("Click'n Park Administration Software");
     //Setting the size
-    this.setSize(1080,720);
+    this.setSize(1600,900);
     //this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
     //Center object
     this.setLocationRelativeTo(null);
@@ -67,12 +68,19 @@ public class GUI extends JFrame{
     demands_card.init();
     demands_card.setName("demands_card");
     this.cards.add(demands_card,"Demands");
-
+    
+    //Card displaying the accepted demands
+    accepted_card.init();
+    accepted_card.setName("accepted_card");
+    this.cards.add(accepted_card,"Accepted");
+    
+    /*
     //Card displaying the stores
     store_card.init();
     store_card.setName("store_card");
     this.cards.add(store_card,"Stores");
-
+    */
+    
     this.add(cards);
     this.setVisible(true);
     }
